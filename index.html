@@ -31,9 +31,9 @@
         </div>
 
         <div class="nav-right" id="nav-logged" style="display: none;">
+            <button class="nav-icon" onclick="verificarLoginEIrParaPainel()"><i class="fa-solid fa-gauge-high"></i></button>
             <button class="nav-icon"><i class="fa-regular fa-bell"></i></button>
-            <button class="nav-icon"><i class="fa-regular fa-comment"></i></button>
-            <div class="user-avatar-small">T</div>
+            <div class="user-avatar-small" onclick="fazerLogout()" title="Sair">T</div>
         </div>
     </header>
 
@@ -54,28 +54,9 @@
         </section>
 
         <main class="container">
-            <div class="top-grid">
-                <div class="card card-avisos">
-                    <h3><i class="fa-solid fa-bullhorn icon-blue"></i> Avisos</h3>
-                    <p>Seja bem-vindo(a) ao Ambiente de Aprendizado PET-Saúde Digital!</p>
-                    <a href="#" class="card-link">Ver todos os avisos <i class="fa-solid fa-chevron-right"></i></a>
-                </div>
-
-                <div class="card card-acessos">
-                    <h3>Acessos rápidos</h3>
-                    <div class="acessos-buttons">
-                        <button class="acesso-item" onclick="verificarLoginEIrParaPainel()"><i class="fa-solid fa-gauge-high"></i><span>Painel</span></button>
-                        <button class="acesso-item"><i class="fa-regular fa-calendar-days"></i><span>Calendário</span></button>
-                        <button class="acesso-item" onclick="verificarLoginEIrParaPainel()"><i class="fa-solid fa-graduation-cap"></i><span>Meus cursos</span></button>
-                        <button class="acesso-item"><i class="fa-regular fa-envelope"></i><span>Mensagens</span></button>
-                    </div>
-                </div>
-            </div>
-
-            <section class="cursos-section">
+            <section class="cursos-section" style="margin-top: 2rem;">
                 <div class="section-header">
-                    <h2><i class="fa-solid fa-book-open icon-blue"></i> Meus cursos</h2>
-                    <a href="#" class="view-all">Ver todos os cursos <i class="fa-solid fa-chevron-right"></i></a>
+                    <h2><i class="fa-solid fa-book-open icon-blue"></i> Cursos Disponíveis</h2>
                 </div>
 
                 <div class="cursos-grid">
@@ -87,12 +68,7 @@
                                 <p>Fundamentos, práticas e estratégias para promoção da saúde mental e bem-estar.</p>
                             </div>
                         </div>
-                        <div class="progress-container">
-                            <span class="prog-text">Progresso</span>
-                            <div class="progress-bar"><div class="progress-fill" style="width: 0%;"></div></div>
-                            <span class="prog-percent">0%</span>
-                        </div>
-                        <button class="btn-course" onclick="abrirModal('loginModal')">Acessar curso</button>
+                        <button class="btn-course" onclick="abrirModal('registerModal')">Cadastre-se para acessar</button>
                     </div>
 
                     <div class="curso-card mulher">
@@ -103,12 +79,7 @@
                                 <p>Atenção integral à saúde da mulher em diferentes fases da vida.</p>
                             </div>
                         </div>
-                        <div class="progress-container">
-                            <span class="prog-text">Progresso</span>
-                            <div class="progress-bar"><div class="progress-fill" style="width: 0%;"></div></div>
-                            <span class="prog-percent">0%</span>
-                        </div>
-                        <button class="btn-course" onclick="abrirModal('loginModal')">Acessar curso</button>
+                        <button class="btn-course" onclick="abrirModal('registerModal')">Cadastre-se para acessar</button>
                     </div>
 
                     <div class="curso-card negligenciadas">
@@ -119,12 +90,7 @@
                                 <p>Conhecimento e abordagens sobre doenças negligenciadas e seus impactos na saúde pública.</p>
                             </div>
                         </div>
-                        <div class="progress-container">
-                            <span class="prog-text">Progresso</span>
-                            <div class="progress-bar"><div class="progress-fill" style="width: 0%;"></div></div>
-                            <span class="prog-percent">0%</span>
-                        </div>
-                        <button class="btn-course" onclick="abrirModal('loginModal')">Acessar curso</button>
+                        <button class="btn-course" onclick="abrirModal('registerModal')">Cadastre-se para acessar</button>
                     </div>
 
                     <div class="curso-card lgpd">
@@ -135,64 +101,11 @@
                                 <p>Proteção de dados pessoais e adequação à Lei Geral de Proteção de Dados na área da saúde.</p>
                             </div>
                         </div>
-                        <div class="progress-container">
-                            <span class="prog-text">Progresso</span>
-                            <div class="progress-bar"><div class="progress-fill" style="width: 0%;"></div></div>
-                            <span class="prog-percent">0%</span>
-                        </div>
-                        <button class="btn-course" onclick="abrirModal('loginModal')">Acessar curso</button>
+                        <button class="btn-course" onclick="abrirModal('registerModal')">Cadastre-se para acessar</button>
                     </div>
                 </div>
             </section>
-
-            <div class="card card-ajuda">
-                <div class="ajuda-left">
-                    <div class="help-icon"><i class="fa-solid fa-question"></i></div>
-                    <div>
-                        <h3>Precisa de ajuda?</h3>
-                        <p>Acesse nossa central de ajuda ou entre em contato com o suporte.</p>
-                    </div>
-                </div>
-                <button class="btn-outline">Central de ajuda</button>
-            </div>
         </main>
-
-        <footer class="footer">
-            <div class="footer-top">
-                <div class="footer-brand">
-                    <h4><i class="fa-solid fa-heart-pulse"></i> PET-Saúde</h4>
-                    <p>Ambiente colaborativo de ensino e aprendizagem para transformação digital na saúde.</p>
-                </div>
-                <div class="footer-links">
-                    <h5>Navegação</h5>
-                    <a href="#">Página inicial</a>
-                    <a href="#">Painel</a>
-                    <a href="#">Meus cursos</a>
-                    <a href="#">Calendário</a>
-                </div>
-                <div class="footer-links">
-                    <h5>Suporte</h5>
-                    <a href="#">Central de ajuda</a>
-                    <a href="#">Fale conosco</a>
-                    <a href="#">Perguntas frequentes</a>
-                </div>
-                <div class="footer-social">
-                    <h5>Siga-nos</h5>
-                    <div class="social-icons">
-                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 PET-Saúde Digital. Todos os direitos reservados.</p>
-                <div class="footer-legal">
-                    <a href="#">Política de privacidade</a> | <a href="#">Termos de uso</a>
-                </div>
-            </div>
-        </footer>
     </div>
 
     <div id="dashboard-view" style="display: none;">
@@ -219,16 +132,124 @@
             <main class="dashboard-content">
                 <div class="dash-header">
                     <h2>Meus Cursos</h2>
-                    <p>Continue de onde você parou</p>
+                    <p>Continue de onde você parou e acesse o conteúdo das aulas.</p>
                 </div>
 
-                <div class="empty-state">
-                    <i class="fa-solid fa-book-open empty-icon"></i>
-                    <h3>Você ainda não se matriculou em nenhum curso</h3>
-                    <p>Explore nosso catálogo e comece a aprender agora mesmo!</p>
-                    <button class="btn-submit-green" style="width: auto; padding: 0.8rem 2rem;" onclick="fazerLogout()">Explorar Cursos</button>
+                <div class="cursos-grid">
+                    <div class="curso-card mental">
+                        <div class="curso-header">
+                            <div class="curso-icon-main"><i class="fa-solid fa-brain"></i></div>
+                            <div>
+                                <h4>Saúde Mental</h4>
+                                <p>Fundamentos, práticas e estratégias para promoção da saúde mental e bem-estar.</p>
+                            </div>
+                        </div>
+                        <div class="progress-container">
+                            <span class="prog-text">Progresso</span>
+                            <div class="progress-bar"><div class="progress-fill" style="width: 15%;"></div></div>
+                            <span class="prog-percent">15%</span>
+                        </div>
+                        <button class="btn-submit-green" style="margin-top: 1rem;" onclick="abrirAula('Saúde Mental')">Acessar Aulas <i class="fa-solid fa-play"></i></button>
+                    </div>
+
+                    <div class="curso-card mulher">
+                        <div class="curso-header">
+                            <div class="curso-icon-main"><i class="fa-solid fa-venus"></i></div>
+                            <div>
+                                <h4>Saúde da Mulher</h4>
+                                <p>Atenção integral à saúde da mulher em diferentes fases da vida.</p>
+                            </div>
+                        </div>
+                        <div class="progress-container">
+                            <span class="prog-text">Progresso</span>
+                            <div class="progress-bar"><div class="progress-fill" style="width: 0%;"></div></div>
+                            <span class="prog-percent">0%</span>
+                        </div>
+                        <button class="btn-submit-green" style="margin-top: 1rem;" onclick="abrirAula('Saúde da Mulher')">Acessar Aulas <i class="fa-solid fa-play"></i></button>
+                    </div>
+
+                    <div class="curso-card negligenciadas">
+                        <div class="curso-header">
+                            <div class="curso-icon-main"><i class="fa-solid fa-microscope"></i></div>
+                            <div>
+                                <h4>Doenças Negligenciadas</h4>
+                                <p>Abordagens sobre doenças negligenciadas e seus impactos na saúde pública.</p>
+                            </div>
+                        </div>
+                        <div class="progress-container">
+                            <span class="prog-text">Progresso</span>
+                            <div class="progress-bar"><div class="progress-fill" style="width: 44%;"></div></div>
+                            <span class="prog-percent">44%</span>
+                        </div>
+                        <button class="btn-submit-green" style="margin-top: 1rem;" onclick="abrirAula('Doenças Negligenciadas')">Acessar Aulas <i class="fa-solid fa-play"></i></button>
+                    </div>
                 </div>
             </main>
+        </div>
+    </div>
+
+    <div id="course-player-view" style="display: none;">
+        <div class="container player-layout">
+            
+            <div class="player-header">
+                <button class="btn-outline" onclick="fecharAula()"><i class="fa-solid fa-arrow-left"></i> Voltar ao Painel</button>
+                <div>
+                    <h2 id="player-course-title" style="color: var(--dark-green);">Nome do Curso</h2>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Módulo 1 - Aula Inaugural</p>
+                </div>
+            </div>
+
+            <div class="video-container">
+                <i class="fa-solid fa-circle-play video-play-icon"></i>
+                <p>Clique para iniciar a aula</p>
+            </div>
+
+            <div class="lessons-list-container">
+                
+                <div class="table-header">
+                    <div>Aula / Módulo</div>
+                    <div>Duração</div>
+                    <div>Andamento do curso</div>
+                    <div style="text-align: right;">Ações</div>
+                </div>
+
+                <div class="table-row">
+                    <div class="tb-col-name"><i class="fa-regular fa-circle-play" style="color: var(--teal); margin-right: 8px;"></i> 1. Introdução e Conceitos</div>
+                    <div class="tb-col-date">15 min</div>
+                    <div class="tb-col-prog">
+                        <div class="tb-prog-bar"><div class="tb-prog-fill" style="width: 100%;"></div></div>
+                        <span>100% concluído</span>
+                    </div>
+                    <div class="tb-col-action">
+                        <button class="btn-table-action active">Assistir de novo</button>
+                    </div>
+                </div>
+
+                <div class="table-row">
+                    <div class="tb-col-name"><i class="fa-regular fa-circle-play" style="color: var(--teal); margin-right: 8px;"></i> 2. Práticas Fundamentais</div>
+                    <div class="tb-col-date">25 min</div>
+                    <div class="tb-col-prog">
+                        <div class="tb-prog-bar"><div class="tb-prog-fill" style="width: 44%;"></div></div>
+                        <span>44% concluído</span>
+                    </div>
+                    <div class="tb-col-action">
+                        <button class="btn-table-action active">Continuar</button>
+                    </div>
+                </div>
+
+                <div class="table-row">
+                    <div class="tb-col-name"><i class="fa-regular fa-circle-play" style="color: var(--text-muted); margin-right: 8px;"></i> 3. Avaliação Final</div>
+                    <div class="tb-col-date">40 min</div>
+                    <div class="tb-col-prog">
+                        <div class="tb-prog-bar"><div class="tb-prog-fill" style="width: 0%;"></div></div>
+                        <span>9% concluído</span>
+                    </div>
+                    <div class="tb-col-action">
+                        <button class="btn-table-action blocked">Bloqueado</button>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
 

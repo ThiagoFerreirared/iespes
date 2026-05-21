@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PET-Saúde Digital - Ambiente de Aprendizado</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -11,18 +14,19 @@
 
     <header class="navbar">
         <div class="nav-left">
-            <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
             <div class="logo-placeholder" onclick="fazerLogout()" style="cursor: pointer;" title="Voltar para a página inicial">
-                <i class="fa-solid fa-heart-pulse"></i> <span>PET-Saúde</span>
+                <i class="fa-solid fa-heart-pulse"></i>
+                <span class="logo-name">PET-Saúde</span>
+                <span class="logo-sep">/</span>
+                <span class="logo-sub">Digital</span>
             </div>
         </div>
         
         <nav class="nav-menu" id="nav-menu-center">
-            <a href="#" class="active">Página inicial</a>
+            <a href="#" class="active">Início</a>
             <a href="#" onclick="verificarLoginEIrParaPainel()">Painel</a>
-            <a href="#">Meus cursos</a>
-            <a href="#">Calendário</a>
-            <a href="#">Ajuda <i class="fa-solid fa-chevron-down"></i></a>
+            <a href="#cursos-ancora">Cursos</a>
+            <a href="#faq-ancora">Ajuda</a>
         </nav>
 
         <div class="nav-right" id="nav-unlogged">
@@ -38,25 +42,80 @@
     </header>
 
     <div id="landing-view">
+        
         <section class="hero-banner">
             <div class="hero-text">
-                <p class="subtitle">Ambiente de Aprendizado</p>
-                <h1>PET-Saúde Digital</h1>
-                <p class="description">Espaço colaborativo de ensino, aprendizagem e compartilhamento de conhecimento na área da saúde.</p>
-                <button class="btn-primary" onclick="abrirModal('loginModal')"><i class="fa-solid fa-graduation-cap"></i> Meus cursos</button>
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    <span>Ambiente de Aprendizado</span>
+                </div>
+                <h1>PET-Saúde <em>Digital</em></h1>
+                <p class="description">Espaço colaborativo de ensino, aprendizagem e compartilhamento de conhecimento na área da saúde. Transforme sua carreira agora.</p>
+                <div class="hero-buttons">
+                    <button class="btn-primary" onclick="abrirModal('registerModal')">Começar Agora</button>
+                    <button class="btn-outline-dark" onclick="document.getElementById('cursos-ancora').scrollIntoView({behavior: 'smooth'})">Ver Cursos</button>
+                </div>
             </div>
             <div class="hero-logos">
-                <div class="logo-box green-text">🟩 Fundação Esperança</div>
-                <div class="logo-box green-text">iespes</div>
-                <div class="logo-box blue-red-text">UEPA</div>
-                <div class="logo-box blue-text">PET-Saúde</div>
+                <p class="partners-label">Em parceria com</p>
+                <div class="partners-grid">
+                    <div class="partner-card">
+                        <span class="partner-accent"></span>
+                        <strong>Fundação Esperança</strong>
+                        <span>Saúde &amp; Educação</span>
+                    </div>
+                    <div class="partner-card">
+                        <strong>IESPES</strong>
+                        <span>Instituto de Ensino</span>
+                    </div>
+                    <div class="partner-card">
+                        <strong>UEPA</strong>
+                        <span>Universidade Estadual</span>
+                    </div>
+                    <div class="partner-card">
+                        <strong>PET-Saúde</strong>
+                        <span>Programa Federal</span>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <main class="container">
-            <section class="cursos-section" style="margin-top: 2rem;">
+        <section class="value-prop">
+            <div class="prop-item">
+                <div class="prop-icon-wrap"><i class="fa-solid fa-certificate prop-icon"></i></div>
+                <h3>Certificados Válidos</h3>
+                <p>Certificação reconhecida para horas complementares e currículo profissional.</p>
+            </div>
+            <div class="prop-item">
+                <div class="prop-icon-wrap"><i class="fa-solid fa-laptop-medical prop-icon"></i></div>
+                <h3>100% Online</h3>
+                <p>Estude de onde e quando quiser, no seu próprio ritmo de aprendizado.</p>
+            </div>
+            <div class="prop-item">
+                <div class="prop-icon-wrap"><i class="fa-solid fa-user-doctor prop-icon"></i></div>
+                <h3>Especialistas do SUS</h3>
+                <p>Conteúdo criado e revisado por mestres e doutores da rede pública.</p>
+            </div>
+        </section>
+
+        <main class="container" id="cursos-ancora">
+            
+            <div class="search-filter-section">
+                <div class="search-bar">
+                    <input type="text" placeholder="O que você quer aprender hoje?">
+                    <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+                <div class="filters">
+                    <button class="filter-btn active" onclick="ativarFiltro(this)">Todos</button>
+                    <button class="filter-btn" onclick="ativarFiltro(this)">Saúde Pública</button>
+                    <button class="filter-btn" onclick="ativarFiltro(this)">Gestão e Leis</button>
+                    <button class="filter-btn" onclick="ativarFiltro(this)">Especialidades</button>
+                </div>
+            </div>
+
+            <section class="cursos-section">
                 <div class="section-header">
-                    <h2><i class="fa-solid fa-book-open icon-blue"></i> Cursos Disponíveis</h2>
+                    <h2>Cursos Disponíveis</h2>
                 </div>
 
                 <div class="cursos-grid">
@@ -87,7 +146,7 @@
                             <div class="curso-icon-main"><i class="fa-solid fa-microscope"></i></div>
                             <div>
                                 <h4>Doenças Negligenciadas</h4>
-                                <p>Conhecimento e abordagens sobre doenças negligenciadas e seus impactos na saúde pública.</p>
+                                <p>Conhecimento e abordagens sobre doenças negligenciadas na saúde pública.</p>
                             </div>
                         </div>
                         <button class="btn-course" onclick="abrirModal('registerModal')">Cadastre-se para acessar</button>
@@ -98,7 +157,7 @@
                             <div class="curso-icon-main"><i class="fa-solid fa-lock"></i></div>
                             <div>
                                 <h4>LGPD na Saúde</h4>
-                                <p>Proteção de dados pessoais e adequação à Lei Geral de Proteção de Dados na área da saúde.</p>
+                                <p>Proteção de dados pessoais e adequação à Lei Geral de Proteção de Dados.</p>
                             </div>
                         </div>
                         <button class="btn-course" onclick="abrirModal('registerModal')">Cadastre-se para acessar</button>
@@ -107,11 +166,67 @@
             </section>
         </main>
 
+        <section class="stats-section">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h2>+5.000</h2>
+                    <p>Alunos Formados</p>
+                </div>
+                <div class="stat-item">
+                    <h2>15</h2>
+                    <p>Cursos Disponíveis</p>
+                </div>
+                <div class="stat-item">
+                    <h2>+100h</h2>
+                    <p>De Conteúdo Original</p>
+                </div>
+                <div class="stat-item">
+                    <h2>4.9</h2>
+                    <p>Avaliação dos Alunos</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section" id="faq-ancora">
+            <div class="section-header">
+                <h2>Dúvidas Frequentes</h2>
+            </div>
+            
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button class="accordion-header">Os cursos oferecidos são 100% gratuitos? <i class="fa-solid fa-chevron-down"></i></button>
+                    <div class="accordion-content">
+                        <p>Sim! O PET-Saúde Digital é uma iniciativa de fomento à educação e todos os cursos disponíveis na plataforma são totalmente gratuitos, desde a inscrição até a emissão do certificado.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">Qualquer pessoa pode se inscrever? <i class="fa-solid fa-chevron-down"></i></button>
+                    <div class="accordion-content">
+                        <p>Sim. Embora nosso foco seja em profissionais e acadêmicos da área da saúde, o portal é aberto para qualquer cidadão que tenha interesse em adquirir conhecimento em saúde pública, gestão e legislações aplicadas.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">Como funciona a emissão do certificado? <i class="fa-solid fa-chevron-down"></i></button>
+                    <div class="accordion-content">
+                        <p>Após concluir 100% das aulas e ser aprovado na avaliação final (se houver), o botão de emissão de certificado será desbloqueado no seu "Painel do Aluno". O documento é gerado em PDF com um código de autenticidade.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="big-cta">
+            <div class="cta-content">
+                <h2>Pronto para transformar<br><em>a sua carreira?</em></h2>
+                <p>Junte-se a milhares de profissionais que já estão se qualificando com os melhores especialistas da rede pública de saúde.</p>
+                <button class="btn-cta" onclick="abrirModal('registerModal')">Criar minha conta gratuitamente</button>
+            </div>
+        </section>
+
         <footer class="footer">
             <div class="footer-top">
                 <div class="footer-brand">
-                    <h4><i class="fa-solid fa-heart-pulse"></i> PET-Saúde</h4>
-                    <p>Ambiente colaborativo de ensino e aprendizagem para transformação digital na saúde.</p>
+                    <div class="footer-logo"><i class="fa-solid fa-heart-pulse"></i> PET-Saúde</div>
+                    <p>Ambiente colaborativo de ensino e aprendizagem para transformação digital na saúde pública.</p>
                 </div>
                 <div class="footer-links">
                     <h5>Navegação</h5>
@@ -129,38 +244,35 @@
                 <div class="footer-social">
                     <h5>Siga-nos</h5>
                     <div class="social-icons">
-                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 PET-Saúde Digital. Todos os direitos reservados.</p>
                 <div class="footer-legal">
-                    <a href="#">Política de privacidade</a> | <a href="#">Termos de uso</a>
+                    <a href="#">Política de privacidade</a>
+                    <a href="#">Termos de uso</a>
                 </div>
             </div>
         </footer>
-        </div>
 
-    <div id="dashboard-view" style="display: none;">
+    </div> <div id="dashboard-view" style="display: none;">
         <div class="container dashboard-layout">
-            
             <aside class="sidebar">
                 <div class="user-profile">
                     <div class="avatar-large">T</div>
                     <h3 class="user-name">thiago ferreira</h3>
                     <p class="user-email">t.redbala@gmail.com</p>
                 </div>
-                
                 <nav class="sidebar-menu">
                     <a href="#" class="menu-item active"><i class="fa-solid fa-graduation-cap"></i> Meus Cursos</a>
                     <a href="#" class="menu-item"><i class="fa-regular fa-circle-check"></i> Meus Certificados</a>
                     <a href="#" class="menu-item"><i class="fa-regular fa-user"></i> Meus Dados</a>
                 </nav>
-                
                 <div class="sidebar-footer">
                     <a href="#" class="menu-item logout" onclick="fazerLogout()"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sair</a>
                 </div>
@@ -186,7 +298,7 @@
                             <div class="progress-bar"><div class="progress-fill" style="width: 15%;"></div></div>
                             <span class="prog-percent">15%</span>
                         </div>
-                        <button class="btn-submit-green" style="margin-top: 1rem;" onclick="abrirAula('Saúde Mental')">Acessar Aulas <i class="fa-solid fa-play"></i></button>
+                        <button class="btn-submit-green" onclick="abrirAula('Saúde Mental')">Acessar Aulas <i class="fa-solid fa-play"></i></button>
                     </div>
 
                     <div class="curso-card mulher">
@@ -202,7 +314,7 @@
                             <div class="progress-bar"><div class="progress-fill" style="width: 0%;"></div></div>
                             <span class="prog-percent">0%</span>
                         </div>
-                        <button class="btn-submit-green" style="margin-top: 1rem;" onclick="abrirAula('Saúde da Mulher')">Acessar Aulas <i class="fa-solid fa-play"></i></button>
+                        <button class="btn-submit-green" onclick="abrirAula('Saúde da Mulher')">Acessar Aulas <i class="fa-solid fa-play"></i></button>
                     </div>
 
                     <div class="curso-card negligenciadas">
@@ -218,7 +330,7 @@
                             <div class="progress-bar"><div class="progress-fill" style="width: 44%;"></div></div>
                             <span class="prog-percent">44%</span>
                         </div>
-                        <button class="btn-submit-green" style="margin-top: 1rem;" onclick="abrirAula('Doenças Negligenciadas')">Acessar Aulas <i class="fa-solid fa-play"></i></button>
+                        <button class="btn-submit-green" onclick="abrirAula('Doenças Negligenciadas')">Acessar Aulas <i class="fa-solid fa-play"></i></button>
                     </div>
                 </div>
             </main>
@@ -229,16 +341,16 @@
         <div class="container player-layout">
             
             <div class="player-header">
-                <button class="btn-outline" onclick="fecharAula()"><i class="fa-solid fa-arrow-left"></i> Voltar ao Painel</button>
+                <button class="btn-outline" onclick="fecharAula()"><i class="fa-solid fa-arrow-left"></i> Voltar</button>
                 <div>
-                    <h2 id="player-course-title" style="color: var(--dark-green);">Nome do Curso</h2>
-                    <p style="color: var(--text-muted); font-size: 0.9rem;">Módulo 1 - Aula Inaugural</p>
+                    <h2 id="player-course-title">Nome do Curso</h2>
+                    <p>Módulo 1 — Aula Inaugural</p>
                 </div>
             </div>
 
             <div class="video-container">
                 <iframe 
-                    src="https://www.youtube.com/embed/LXb3EKWsInQ?rel=0" 
+                    src="https://www.youtube.com/embed/QYLgc_-jApk?rel=0" 
                     title="Vídeo de Aula PET-Saúde" 
                     frameborder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
@@ -247,50 +359,30 @@
             </div>
 
             <div class="lessons-list-container">
-                
                 <div class="table-header">
                     <div>Aula / Módulo</div>
                     <div>Duração</div>
                     <div>Andamento do curso</div>
                     <div style="text-align: right;">Ações</div>
                 </div>
-
                 <div class="table-row">
                     <div class="tb-col-name"><i class="fa-regular fa-circle-play" style="color: var(--teal); margin-right: 8px;"></i> 1. Introdução e Conceitos</div>
                     <div class="tb-col-date">15 min</div>
-                    <div class="tb-col-prog">
-                        <div class="tb-prog-bar"><div class="tb-prog-fill" style="width: 100%;"></div></div>
-                        <span>100% concluído</span>
-                    </div>
-                    <div class="tb-col-action">
-                        <button class="btn-table-action active">Assistir de novo</button>
-                    </div>
+                    <div class="tb-col-prog"><div class="tb-prog-bar"><div class="tb-prog-fill" style="width: 100%;"></div></div><span>100% concluído</span></div>
+                    <div class="tb-col-action"><button class="btn-table-action active">Assistir de novo</button></div>
                 </div>
-
                 <div class="table-row">
                     <div class="tb-col-name"><i class="fa-regular fa-circle-play" style="color: var(--teal); margin-right: 8px;"></i> 2. Práticas Fundamentais</div>
                     <div class="tb-col-date">25 min</div>
-                    <div class="tb-col-prog">
-                        <div class="tb-prog-bar"><div class="tb-prog-fill" style="width: 44%;"></div></div>
-                        <span>44% concluído</span>
-                    </div>
-                    <div class="tb-col-action">
-                        <button class="btn-table-action active">Continuar</button>
-                    </div>
+                    <div class="tb-col-prog"><div class="tb-prog-bar"><div class="tb-prog-fill" style="width: 44%;"></div></div><span>44% concluído</span></div>
+                    <div class="tb-col-action"><button class="btn-table-action active">Continuar</button></div>
                 </div>
-
                 <div class="table-row">
                     <div class="tb-col-name"><i class="fa-regular fa-circle-play" style="color: var(--text-muted); margin-right: 8px;"></i> 3. Avaliação Final</div>
                     <div class="tb-col-date">40 min</div>
-                    <div class="tb-col-prog">
-                        <div class="tb-prog-bar"><div class="tb-prog-fill" style="width: 0%;"></div></div>
-                        <span>9% concluído</span>
-                    </div>
-                    <div class="tb-col-action">
-                        <button class="btn-table-action blocked">Bloqueado</button>
-                    </div>
+                    <div class="tb-col-prog"><div class="tb-prog-bar"><div class="tb-prog-fill" style="width: 0%;"></div></div><span>9% concluído</span></div>
+                    <div class="tb-col-action"><button class="btn-table-action blocked">Bloqueado</button></div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -334,52 +426,25 @@
                     <label>Nome Completo</label>
                     <input type="text" placeholder="Seu nome completo" required>
                 </div>
-                
                 <div class="form-row">
-                    <div class="input-group">
-                        <label>E-mail</label>
-                        <input type="email" placeholder="seu@email.com" required>
-                    </div>
-                    <div class="input-group">
-                        <label>CPF</label>
-                        <input type="text" placeholder="000.000.000-00" required>
-                    </div>
+                    <div class="input-group"><label>E-mail</label><input type="email" placeholder="seu@email.com" required></div>
+                    <div class="input-group"><label>CPF</label><input type="text" placeholder="000.000.000-00" required></div>
                 </div>
-
-                <div class="input-group">
-                    <label>Telefone</label>
-                    <input type="text" placeholder="(00) 00000-0000" required>
-                </div>
-
+                <div class="input-group"><label>Telefone</label><input type="text" placeholder="(00) 00000-0000" required></div>
                 <div class="form-row">
-                    <div class="input-group">
-                        <label>Senha</label>
-                        <div class="password-input">
-                            <input type="password" placeholder="••••••••" required>
-                            <i class="fa-regular fa-eye toggle-password"></i>
-                        </div>
-                    </div>
-                    <div class="input-group">
-                        <label>Confirmar Senha</label>
-                        <div class="password-input">
-                            <input type="password" placeholder="••••••••" required>
-                            <i class="fa-regular fa-eye toggle-password"></i>
-                        </div>
-                    </div>
+                    <div class="input-group"><label>Senha</label><div class="password-input"><input type="password" placeholder="••••••••" required><i class="fa-regular fa-eye toggle-password"></i></div></div>
+                    <div class="input-group"><label>Confirmar Senha</label><div class="password-input"><input type="password" placeholder="••••••••" required><i class="fa-regular fa-eye toggle-password"></i></div></div>
                 </div>
-
                 <div class="checkbox-group">
                     <input type="checkbox" id="termos" required>
-                    <label for="termos">Li e aceito a <a href="#" class="link-gold" style="text-decoration: underline;">Política de Privacidade</a> e o tratamento dos meus dados pessoais conforme a LGPD.</label>
+                    <label for="termos">Li e aceito a <a href="#" class="link-gold" style="text-decoration: underline;">Política de Privacidade</a>.</label>
                 </div>
-
                 <button type="submit" class="btn-submit-green">Criar Conta</button>
             </form>
             <div class="modal-footer">
                 <p>Já tem uma conta? <a href="#" class="link-gold bold" onclick="trocarModal('loginModal')">Entre aqui</a></p>
             </div>
         </div>
-
     </div>
 
     <script src="script.js"></script>

@@ -1,11 +1,12 @@
 // ==========================================
-// VARIÁVEIS DE CONTROLE DE SESSÃO
+// INICIALIZAÇÃO DA PÁGINA
 // ==========================================
 let usuarioLogado = false;
 
 document.addEventListener("DOMContentLoaded", () => {
     console.log("Ambiente PET-Saúde Digital carregado.");
     configurarOlhoSenha();
+    configurarFAQ();
 });
 
 // ==========================================
@@ -55,6 +56,43 @@ function configurarOlhoSenha() {
         });
     });
 }
+
+// ==========================================
+// LÓGICA DO FAQ E FILTROS (NOVIDADE)
+// ==========================================
+function configurarFAQ() {
+    const accItems = document.querySelectorAll('.accordion-header');
+    
+    accItems.forEach(item => {
+        item.addEventListener('click', function() {
+            // Pega o elemento pai (.accordion-item)
+            const parent = this.parentElement;
+            
+            // Verifica se já está aberto
+            const isOpen = parent.classList.contains('active');
+            
+            // Fecha todos os outros primeiros
+            document.querySelectorAll('.accordion-item').forEach(child => {
+                child.classList.remove('active');
+            });
+
+            // Se não estava aberto, abre este
+            if (!isOpen) {
+                parent.classList.add('active');
+            }
+        });
+    });
+}
+
+function ativarFiltro(botaoClidado) {
+    // Remove a classe active de todos os botões de filtro
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    // Adiciona a classe active só no que foi clicado
+    botaoClidado.classList.add('active');
+}
+
 
 // ==========================================
 // LÓGICA DE LOGIN E REDIRECIONAMENTO
@@ -122,22 +160,14 @@ function verificarLoginEIrParaPainel() {
 // NAVEGAÇÃO PARA A TELA DE VÍDEO AULAS
 // ==========================================
 function abrirAula(nomeCurso) {
-    // Esconde o painel
     document.getElementById('dashboard-view').style.display = 'none';
-    
-    // Atualiza o título do curso no Player
     document.getElementById('player-course-title').innerText = nomeCurso;
-    
-    // Mostra a tela de vídeo
     document.getElementById('course-player-view').style.display = 'block';
-    
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 function fecharAula() {
-    // Esconde o Player e volta pro Dashboard
     document.getElementById('course-player-view').style.display = 'none';
     document.getElementById('dashboard-view').style.display = 'block';
-    
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }

@@ -171,9 +171,25 @@ body {
 .player-header { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem; }
 
 .video-container {
-    width: 100%; aspect-ratio: 16/9; background: #1a202c; border-radius: 12px;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    color: white; box-shadow: 0 10px 25px rgba(0,0,0,0.1); margin-bottom: 2.5rem;
+    position: relative; 
+    width: 100%; 
+    padding-bottom: 56.25%; /* Força a proporção exata de 16:9 do YouTube */
+    height: 0; /* Remove a altura extra que estava gerando a faixa azul/preta */
+    background: #000; 
+    border-radius: 12px;
+    overflow: hidden; 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
+    margin-bottom: 2.5rem;
+}
+
+/* O player do YouTube ocupando o espaço todo */
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
 }
 .video-play-icon { font-size: 4.5rem; color: var(--teal); cursor: pointer; transition: transform 0.2s; margin-bottom: 1rem; }
 .video-play-icon:hover { transform: scale(1.1); }
@@ -245,4 +261,53 @@ body {
     .table-row { grid-template-columns: 1fr; gap: 0.5rem; text-align: center; border: 1px solid var(--border-color); border-radius: 8px; margin-bottom: 1rem; }
     .tb-col-prog { justify-content: center; }
     .tb-col-action { text-align: center; }
+}
+
+/* ==================================================== */
+/* RODAPÉ (FOOTER)                                      */
+/* ==================================================== */
+.footer {
+    background-color: var(--primary-blue); 
+    color: white;
+    padding: 3rem 4rem 1.5rem; 
+    margin-top: 4rem;
+}
+
+.footer-top {
+    display: grid; 
+    grid-template-columns: 2fr 1fr 1fr 1fr; 
+    gap: 2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1); 
+    padding-bottom: 2rem;
+}
+
+.footer-brand h4 { font-size: 1.3rem; margin-bottom: 1rem; }
+.footer-brand p { color: #cbd5e1; font-size: 0.9rem; max-width: 300px; }
+
+.footer-links h5, .footer-social h5 { font-size: 1rem; margin-bottom: 1rem; }
+.footer-links a {
+    display: block; color: #cbd5e1; text-decoration: none;
+    font-size: 0.9rem; margin-bottom: 0.5rem; transition: 0.2s;
+}
+.footer-links a:hover { color: white; }
+
+.social-icons { display: flex; gap: 1rem; }
+.social-icons a { color: white; font-size: 1.3rem; transition: 0.2s; }
+.social-icons a:hover { color: var(--teal); }
+
+.footer-bottom {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 1.5rem; font-size: 0.85rem; color: #cbd5e1;
+}
+.footer-legal a { color: #cbd5e1; text-decoration: none; }
+.footer-legal a:hover { color: white; }
+
+/* Ajuste do Rodapé para Celular e Tablet */
+@media (max-width: 1024px) {
+    .footer-top { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+    .footer-top { grid-template-columns: 1fr; }
+    .footer { padding: 2rem 1.5rem 1.5rem; }
+    .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
 }
